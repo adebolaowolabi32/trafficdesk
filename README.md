@@ -4,6 +4,8 @@
 
 Dispatch buses, watch passengers board, close a bridge, route around it, and take a ride through the same network you operate. Built around the urban transit, fare collection, ticketing and fleet tracking experience described in my CV; this project uses original fictional routes and synthetic demand.
 
+[Play the interactive demo](https://adebolaowolabi32.github.io/trafficdesk/) · [Portfolio](https://adebolaowolabi32.github.io/)
+
 ![TrafficDesk fleet control](docs/desktop.png)
 
 ## Run locally
@@ -58,7 +60,7 @@ npm run format:check
 
 Tests cover passenger conservation, capacity, deterministic replay, closure/detour behavior, breakdown recovery, ticket journeys, dispatch limits and intervention outcomes. Browser tests cover operator controls, the full passenger journey, strategy comparison, desktop/mobile rendering, keyboard map selection, reduced motion and the absence of external data requests.
 
-A GitHub Actions CI workflow runs these checks. A manually triggered Pages workflow can deploy `dist` once this repository is published and Pages is configured to use GitHub Actions. No public deployment is claimed by this local build.
+GitHub Actions runs CI and deploys the static demo to Pages through the manually triggered Deploy portfolio workflow. To verify the deployed demo, run `TRAFFICDESK_URL=https://adebolaowolabi32.github.io/trafficdesk/ npm run test:e2e`. The same four browser scenarios exercise the public site.
 
 ## Simulation boundaries
 

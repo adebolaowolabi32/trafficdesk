@@ -112,7 +112,9 @@ test("reduced motion starts paused and runs without external data services", asy
   const external: string[] = [];
   page.on("request", (r) => {
     if (
-      !r.url().startsWith("http://127.0.0.1:4176") &&
+      new URL(r.url()).origin !==
+        new URL(process.env.TRAFFICDESK_URL || "http://127.0.0.1:4176")
+          .origin &&
       !r.url().startsWith("data:")
     )
       external.push(r.url());
