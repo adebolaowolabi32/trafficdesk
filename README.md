@@ -67,3 +67,9 @@ GitHub Actions runs CI and deploys the static demo to Pages through the manually
 This is a transport operations sandbox, not a calibrated traffic model or navigation service. Geography, demand, fares and journey times are fictional. Vehicles have constant speed; there is no road congestion, vehicle collision avoidance, transfer planning, driver scheduling or real fare settlement. Reserve dispatch places a bus at a chosen stop immediately. Most generated passengers travel two stops; demo ticket passengers choose their destination. Figures illustrate a capped sample of each queue; the numeric badges give actual counts. Boarding and alighting figures animate the service event, while passenger accounting updates at arrival.
 
 CV employer performance figures are not project benchmarks. No employer code or private data is included.
+
+## Author
+
+[Cynthia Owolabi](https://github.com/adebolaowolabi32), Senior Full Stack Engineer with experience across backend, frontend, platforms and applied AI.
+
+[Portfolio and experience](https://adebolaowolabi32.github.io/) · [Current CVs](https://adebolaowolabi32.github.io/resume.html)
