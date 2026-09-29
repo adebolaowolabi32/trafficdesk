@@ -30,7 +30,7 @@ test("operator changes demand, dispatches, reroutes, repairs and resets", async 
   ).toBeVisible();
   await page.getByRole("button", { name: "City pulse" }).click();
   await expect(
-    page.getByRole("heading", { name: "Small decisions. Visible change." }),
+    page.getByRole("heading", { name: "Queues and bus capacity" }),
   ).toBeVisible();
   await page
     .getByRole("button", { name: "Compare dispatch strategies" })

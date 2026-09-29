@@ -1,8 +1,10 @@
 # TrafficDesk
 
-**Keep the city moving.** A playable, Lagos-inspired transit operations simulation by Cynthia Owolabi.
+Run a fictional bus network inspired by Lagos.
 
-Dispatch buses, watch passengers board, close a bridge, route around it, and take a ride through the same network you operate. Built around the urban transit, fare collection, ticketing and fleet tracking experience described in my CV; this project uses original fictional routes and synthetic demand.
+TrafficDesk lets you see what happens to passengers when bus service changes. Close a bridge, watch a queue build up, then try a detour. You can also buy a demo ticket and follow a passenger through the network.
+
+I drew on my transport software work at Interswitch. The routes and demand are fictional; this project contains no employer code.
 
 [Play the interactive demo](https://adebolaowolabi32.github.io/trafficdesk/) · [Portfolio](https://adebolaowolabi32.github.io/)
 
@@ -64,12 +66,12 @@ GitHub Actions runs CI and deploys the static demo to Pages through the manually
 
 ## Simulation boundaries
 
-This is a transport operations sandbox, not a calibrated traffic model or navigation service. Geography, demand, fares and journey times are fictional. Vehicles have constant speed; there is no road congestion, vehicle collision avoidance, transfer planning, driver scheduling or real fare settlement. Reserve dispatch places a bus at a chosen stop immediately. Most generated passengers travel two stops; demo ticket passengers choose their destination. Figures illustrate a capped sample of each queue; the numeric badges give actual counts. Boarding and alighting figures animate the service event, while passenger accounting updates at arrival.
+The simulation is built for trying dispatch decisions. It has not been calibrated against real traffic data. Geography, demand, fares and journey times are fictional. Vehicles have constant speed; there is no road congestion, vehicle collision avoidance, transfer planning, driver scheduling or real fare settlement. Reserve dispatch places a bus at a chosen stop immediately. Most generated passengers travel two stops; demo ticket passengers choose their destination. Figures illustrate a capped sample of each queue; the numeric badges give actual counts. Boarding and alighting figures animate the service event, while passenger accounting updates at arrival.
 
 CV employer performance figures are not project benchmarks. No employer code or private data is included.
 
 ## Author
 
-[Cynthia Owolabi](https://github.com/adebolaowolabi32), Senior Full Stack Engineer with experience across backend, frontend, platforms and applied AI.
+Built by [Cynthia Owolabi](https://github.com/adebolaowolabi32).
 
 [Portfolio and experience](https://adebolaowolabi32.github.io/) · [Current CVs](https://adebolaowolabi32.github.io/resume.html)

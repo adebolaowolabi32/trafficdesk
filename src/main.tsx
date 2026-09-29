@@ -233,18 +233,17 @@ function App() {
         <section className="page-heading">
           <div>
             <div className="eyebrow">
-              <span className="sun-icon">✳</span> A LITTLE CITY. A LOT OF
-              POSSIBILITIES.
+              <span className="sun-icon">✳</span> LAGOS-INSPIRED BUS SIMULATION
             </div>
             <h1>
               {mode === "operator"
-                ? "Keep the city moving."
-                : "Your next stop awaits."}
+                ? "You’re running the buses."
+                : "Where are you heading?"}
             </h1>
             <p>
               {mode === "operator"
-                ? "Dispatch a bus. Change a route. Make someone's morning."
-                : "Pick a journey, grab a demo ticket, and follow your bus across the city."}
+                ? "Try a bridge closure and see which stops need more buses."
+                : "Choose your destination to follow a passenger through the network."}
             </p>
           </div>
           <div className="sim-clock">
@@ -717,7 +716,7 @@ function App() {
                     <div>
                       <TicketIcon size={42} />
                     </div>
-                    <h3>A little adventure awaits.</h3>
+                    <h3>Choose a destination</h3>
                     <p>
                       Choose your stops and get a demo ticket. You'll join the
                       actual simulated queue.
@@ -1028,19 +1027,16 @@ function App() {
         </div>
       )}
       {guide && (
-        <Modal
-          title="A little city. You're in charge."
-          onClose={() => setGuide(false)}
-        >
+        <Modal title="How to use TrafficDesk" onClose={() => setGuide(false)}>
           <p className="modal-intro">
-            TrafficDesk is a living, fictional transport network. Every bus,
-            queue and ticket is connected.
+            TrafficDesk simulates a fictional bus network. Changes to service
+            affect the passengers waiting at each stop.
           </p>
           <div className="guide-steps">
             <div>
               <span>01</span>
               <div>
-                <h3>Make a little room.</h3>
+                <h3>Send another bus</h3>
                 <p>
                   Start Rush hour, select Marina Central, and send buses to
                   bring the queue below 20.
@@ -1050,7 +1046,7 @@ function App() {
             <div>
               <span>02</span>
               <div>
-                <h3>Expect the unexpected.</h3>
+                <h3>Try a disruption</h3>
                 <p>
                   Close the bridge, open the alternate route, or click a bus to
                   simulate a breakdown and repair it.
@@ -1060,10 +1056,10 @@ function App() {
             <div>
               <span>03</span>
               <div>
-                <h3>See the other side.</h3>
+                <h3>Take a ride</h3>
                 <p>
-                  Choose Take a ride to join a queue, board a real simulated bus
-                  and travel to your destination.
+                  Choose Take a ride to join a queue, board a simulated bus and
+                  travel to your destination.
                 </p>
               </div>
             </div>
@@ -1150,7 +1146,7 @@ function Insights({ state }: { state: State }) {
   return (
     <section className="insights-panel">
       <div className="eyebrow">THE CITY, BY THE MOMENT</div>
-      <h2>Small decisions. Visible change.</h2>
+      <h2>Queues and bus capacity</h2>
       <p>Watch the queue respond as buses meet demand.</p>
       <div className="chart-heading">
         <span>Passengers waiting</span>
@@ -1241,7 +1237,7 @@ function Insights({ state }: { state: State }) {
           ))}
       </div>
       <div className="comparison">
-        <h3>Try the same morning, twice.</h3>
+        <h3>Compare six buses with nine</h3>
         <p>
           Compare normal service with three extra buses sent to Marina.
           Identical passenger demand, 120 simulation seconds.
