@@ -4,9 +4,9 @@
 
 ## Time and state
 
-The browser advances the reducer every 100ms by 0.1 × selected speed seconds. Each tick is subdivided into steps no longer than 0.25 seconds. Timers pause in hidden tabs, so background throttling cannot fast-forward the network unexpectedly. There is no wall-clock catch-up and no persistence across reloads. The reset action restores seed 42 and the starting network.
+The browser advances the reducer every 100ms by 0.1 × selected speed seconds. Each tick is subdivided into steps no longer than 0.25 seconds. Timers pause in hidden tabs, preserving simulation time during background throttling. The simulation resumes from its paused time and resets on reload. The reset action restores seed 42 and the starting network.
 
-Queues are counts keyed by stop and route. Buses hold destination-keyed counts. Service unloads arriving passengers, boards as many queued passengers as seats permit, assigns destinations, charges simulated fares, and dwells for two simulation seconds. Generated passengers travel two stops. The optional rider ticket tracks its queue position and selected destination, consuming an actual seat rather than duplicating a passenger.
+Queues are counts keyed by stop and route. Buses hold destination-keyed counts. Service unloads arriving passengers, boards as many queued passengers as seats permit, assigns destinations, charges simulated fares, and dwells for two simulation seconds. Generated passengers travel two stops. The optional rider ticket tracks its queue position and selected destination, consuming a seat in the same passenger accounting system.
 
 The central invariant is:
 
@@ -14,7 +14,7 @@ The central invariant is:
 created passengers = waiting passengers + onboard passengers + completed journeys
 ```
 
-The simulation tests check this through incident and demand changes. Ticket status follows waiting → onboard → arrived; another ticket cannot be issued while the current journey is active.
+The simulation tests check this through incident and demand changes. Ticket status follows waiting → onboard → arrived; each rider has one active ticket at a time.
 
 ## Incidents and dispatch
 
@@ -22,7 +22,7 @@ A closure affects new departures on the University–Freedom Park leg; vehicles 
 
 ## Repeatable experiment
 
-City pulse runs two isolated states with the same initial seed and rush-hour demand for 120 simulation seconds. The intervention adds one reserve bus for each route at Marina at time zero. It reports final waiting passengers and completed journeys. These are synthetic causal comparisons within this simplified model, not real transit predictions or throughput benchmarks.
+City pulse runs two isolated states with the same initial seed and rush-hour demand for 120 simulation seconds. The intervention adds one reserve bus for each route at Marina at time zero. It reports final waiting passengers and completed journeys. These comparisons measure the intervention's effect within the seeded simulation.
 
 ## Rendering and access
 
@@ -30,4 +30,4 @@ SVG route polylines and bus positions use the same segment geometry. Map control
 
 ## Boundaries
 
-The model intentionally omits intersections, congestion, transfers, walking networks, telemetry ingestion, server-side orchestration and durable storage. Its architecture demonstrates a testable interactive simulation; it does not claim a distributed production transport backend.
+The model intentionally omits intersections, congestion, transfers, walking networks, telemetry ingestion, server-side orchestration and durable storage. Its architecture supports a testable browser simulation.
