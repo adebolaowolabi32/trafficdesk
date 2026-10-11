@@ -4,7 +4,7 @@ Run a fictional bus network inspired by Lagos.
 
 TrafficDesk lets you see what happens to passengers when bus service changes. Close a bridge, watch a queue build up, then try a detour. You can also buy a demo ticket and follow a passenger through the network.
 
-I drew on my transport software work at Interswitch. The routes and demand are fictional; this project contains no employer code.
+I drew on my transport software work at Interswitch. The routes, demand and code were created for this portfolio.
 
 [Play the interactive demo](https://adebolaowolabi32.github.io/trafficdesk/) · [Portfolio](https://adebolaowolabi32.github.io/)
 
@@ -19,7 +19,7 @@ npm ci
 npm run dev
 ```
 
-Open **http://localhost:5176/trafficdesk/**. On a remote VM, forward port 5176 over SSH or your editor's port forwarding before opening it in your browser. No API keys, databases or paid services are required.
+Open **http://localhost:5176/trafficdesk/**. On a remote VM, forward port 5176 over SSH or your editor's port forwarding before opening it in your browser. The simulation runs entirely in the browser.
 
 For a production build:
 
@@ -38,15 +38,15 @@ Open http://localhost:4176/trafficdesk/. Vite's base path is `/trafficdesk/`; ch
 4. Switch to **Take a ride**. Get a demo ticket, join the queue, board a bus and follow it to your destination. Use 8× speed to travel faster.
 5. Open **City pulse** to see live queue history and compare two seeded 120-second rush-hour runs: six buses versus nine.
 
-The map supports dragging, zooming, and keyboard selection. Time pauses when the tab is hidden. Reduced-motion preferences start the simulation paused. Refresh or Reset city starts a fresh simulation; there is no saved personal data.
+The map supports dragging, zooming, and keyboard selection. Time pauses when the tab is hidden. Reduced-motion preferences start the simulation paused. Refresh or Reset city starts a fresh simulation; all state belongs to the current simulation.
 
 ## How it works
 
 - **React + TypeScript** control the application and inspectors; an original **SVG map** shows the network, vehicles and passenger figures.
-- A deterministic simulation reducer handles demand, destination loads, capacity-limited boarding, fare totals, dispatch scheduling, incidents and tickets. No backend calls are involved.
+- A deterministic simulation reducer handles demand, destination loads, capacity-limited boarding, fare totals, dispatch scheduling, incidents and tickets. The reducer runs in the browser.
 - Three one-way loop routes serve 12 stops. Six buses begin service; the depot permits up to 18, with 32 seats each.
 - A ticket is one passenger inside the real queue accounting. Boarding adds revenue once; arrival removes its passenger from the bus.
-- Seeded demand makes experiments repeatable. The comparison uses isolated states so it does not disturb the user's city.
+- Seeded demand makes experiments repeatable. Comparisons run on separate copies of the simulation.
 
 See [architecture and model boundaries](docs/ARCHITECTURE.md).
 
@@ -66,9 +66,9 @@ GitHub Actions runs CI and deploys the static demo to Pages through the manually
 
 ## Simulation boundaries
 
-The simulation is built for trying dispatch decisions. It has not been calibrated against real traffic data. Geography, demand, fares and journey times are fictional. Vehicles have constant speed; there is no road congestion, vehicle collision avoidance, transfer planning, driver scheduling or real fare settlement. Reserve dispatch places a bus at a chosen stop immediately. Most generated passengers travel two stops; demo ticket passengers choose their destination. Figures illustrate a capped sample of each queue; the numeric badges give actual counts. Boarding and alighting figures animate the service event, while passenger accounting updates at arrival.
+The simulation is built for trying dispatch decisions. Its parameters are chosen for the demonstration. Geography, demand, fares and journey times are fictional. Vehicles have constant speed; road congestion, collision avoidance, transfer planning, driver scheduling and fare settlement are outside the model's scope. Reserve dispatch places a bus at a chosen stop immediately. Most generated passengers travel two stops; demo ticket passengers choose their destination. Figures illustrate a capped sample of each queue; the numeric badges give actual counts. Boarding and alighting figures animate the service event, while passenger accounting updates at arrival.
 
-CV employer performance figures are not project benchmarks. No employer code or private data is included.
+Project benchmarks measure this fictional simulation. The code and sample data were created for the portfolio.
 
 ## Author
 
